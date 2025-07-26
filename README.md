@@ -144,7 +144,7 @@ python main.py
 ![Query 3 Output](screenshots/kolikata.png)
 
 ### Query 5: "মেয়ে যদি বলো একটি খাসা মেয়ে আছে"- উক্তিটি কাড়?
-### Expected Answer: বিনুদা
+### Expected Answer: হরিশ
 ![Query 3 Output](screenshots/ukti.png)
 
 ### Query 6: অনুপমের আসল অভিবাবক কে?
