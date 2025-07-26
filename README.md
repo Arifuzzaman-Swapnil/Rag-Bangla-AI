@@ -17,29 +17,23 @@ This project implements a basic RAG pipeline that can understand and respond to 
 The dataset contains the main গদ্য পার্ট from HSC26 Bangla 1st paper. I have excluded other pages through code to focus only on the relevant prose content for better accuracy and relevance in the RAG system.
 
 ## Preprocessing
-**Text Extraction**: Used `pdfplumber` for accurate Bengali text extraction from pages 6–27
-**OCR Fallback**: Used `pytesseract` with Bengali language (ben) for OCR when text extraction failed
-**Text Cleaning**: Removed extra spaces, multiple newlines, tab characters, and formatting issues using regex
-**Encoding**: Maintained UTF-8 encoding for proper Bengali character support
-**Filtering**: Removed lines shorter than 15 characters to eliminate OCR noise and non-semantic content
-**Normalization**: Standardized Bengali punctuation (e.g., ।), unified quotes, dashes, and brackets
-**Page Range Limiting**: Focused only on pages 6–27 (গদ্য section), excluding irrelevant content like poetry or grammar
-**Stopword Removal**: Applied Bengali and English stopword filtering to improve semantic quality during chunking
-**Whitespace Stripping**: Trimmed leading/trailing whitespaces from every line
-**Sentence Merging**: Merged fragmented lines from OCR into full sentences for better context retention
-**Pre-check for Noise**: Skipped lines with only numbers, symbols, or formatting artifacts
-**Consistent Line Breaks**: Ensured uniform paragraph spacing and newline structure for clean chunking later
+- **Text Extraction**: Used `pdfplumber` for accurate Bengali text extraction from pages 6–27
+- **OCR Fallback**: Used `pytesseract` with Bengali language (ben) for OCR when text extraction failed
+- **Text Cleaning**: Removed extra spaces, multiple newlines, tab characters, and formatting issues using regex
+- **Encoding**: Maintained UTF-8 encoding for proper Bengali character support
+- **Filtering**: Removed lines shorter than 15 characters to eliminate OCR noise and non-semantic content
+- **Normalization**: Standardized Bengali punctuation (e.g., ।), unified quotes, dashes, and brackets
+- **Page Range Limiting**: Focused only on pages 6–27 (গদ্য section), excluding irrelevant content like poetry or grammar
+- **Stopword Removal**: Applied Bengali and English stopword filtering to improve semantic qu-ality during chunking
+- **Whitespace Stripping**: Trimmed leading/trailing whitespaces from every line
+- **Sentence Merging**: Merged fragmented lines from OCR into full sentences for better context retention
+- **Pre-check for Noise**: Skipped lines with only numbers, symbols, or formatting artifacts
+- **Consistent Line Breaks**: Ensured uniform paragraph spacing and newline structure for clean chunking later
 
 ## Chunks
 
 **Strategy**: Paragraph-based chunking 
 **Rationale**: This approach maintains semantic coherence while keeping chunks manageable for embedding and retrieval.
-
-```python
-# 2-line chunking for better context preservation
-for i in range(0, len(lines), 2):
-    chunk = ' '.join(lines[i:i+2])
-```
 
 ## RAG Implementation
 
@@ -89,22 +83,23 @@ rag-bangla-hsc/
 Full Setup Guide (TesserOCR + Bengali OCR)
 
 1. Install Tesseract Engine (System Level)
-**Ubuntu/Debian:**
+- **Ubuntu/Debian:**
 ```bash
 sudo apt update
 sudo apt install tesseract-ocr libtesseract-dev
 sudo apt install tesseract-ocr-ben  # Bengali language data
-Windows:
-Download the Tesseract installer
-During installation, select Bengali language data.
-Add Tesseract path (e.g., C:\Program Files\Tesseract-OCR) to your system PATH.
 ```
-**macOS:**
+- **Windows:**
+- Download the Tesseract installer
+- During installation, select Bengali language data.
+- Add Tesseract path (e.g., C:\Program Files\Tesseract-OCR) to your system PATH.
+
+- **macOS:**
 ```bash
 brew install tesseract
 brew install tesseract-lang  # or: brew install tesseract-lang && tesseract --list-langs
 ```
-For Bengali:
+- For Bengali:
 ```bash
 brew install tesseract-lang
 # or, if not available:
