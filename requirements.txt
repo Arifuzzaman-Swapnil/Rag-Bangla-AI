@@ -7,3 +7,6 @@ numpy
 scikit-learn
 groq
 python-dotenv
+tesserocr
+pillow
+pdf2image

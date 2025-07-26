@@ -13,6 +13,7 @@ This project implements a basic RAG pipeline that can understand and respond to 
 **Pages Used**: 6-27 (Main গদ্য content only)
 
 ### Dataset Analysis
+
 The dataset contains the main গদ্য পার্ট from HSC26 Bangla 1st paper. I have excluded other pages through code to focus only on the relevant prose content for better accuracy and relevance in the RAG system.
 
 ## Preprocessing
@@ -77,6 +78,31 @@ rag-bangla-hsc/
 ```
 
 ### Installation & Setup
+
+Full Setup Guide (TesserOCR + Bengali OCR)
+
+1. Install Tesseract Engine (System Level)
+**Ubuntu/Debian:**
+```bash
+sudo apt update
+sudo apt install tesseract-ocr libtesseract-dev
+sudo apt install tesseract-ocr-ben  # Bengali language data
+Windows:
+Download the Tesseract installer
+During installation, select Bengali language data.
+Add Tesseract path (e.g., C:\Program Files\Tesseract-OCR) to your system PATH.
+```
+**macOS:**
+```bash
+brew install tesseract
+brew install tesseract-lang  # or: brew install tesseract-lang && tesseract --list-langs
+```
+For Bengali:
+```bash
+brew install tesseract-lang
+# or, if not available:
+wget https://github.com/tesseract-ocr/tessdata/raw/main/ben.traineddata -P /usr/local/share/tessdata/
+```
 
 1. **Clone the Repository**
 ```bash
