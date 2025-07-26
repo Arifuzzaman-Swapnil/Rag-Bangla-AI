@@ -83,53 +83,53 @@ rag-bangla-hsc/
 Full Setup Guide (TesserOCR + Bengali OCR)
 
 Install Tesseract Engine (System Level)
-- **Ubuntu/Debian:**
+**Ubuntu/Debian:**
 ```bash
 sudo apt update
 sudo apt install tesseract-ocr libtesseract-dev
 sudo apt install tesseract-ocr-ben  # Bengali language data
 ```
-- **Windows:**
+#### **Windows:**
 - Download the Tesseract installer
 - During installation, select Bengali language data.
 - Add Tesseract path (e.g., C:\Program Files\Tesseract-OCR) to your system PATH.
 
-- **macOS:**
+#### **macOS:**
 ```bash
 brew install tesseract
 brew install tesseract-lang  # or: brew install tesseract-lang && tesseract --list-langs
 ```
-- For Bengali:
+#### For Bengali:
 ```bash
 brew install tesseract-lang
 # or, if not available:
 wget https://github.com/tesseract-ocr/tessdata/raw/main/ben.traineddata -P /usr/local/share/tessdata/
 ```
 
-1. **Clone the Repository**
+### 1. **Clone the Repository**
 ```bash
 git clone https://github.com/Arifuzzaman-Swapnil/Rag-Bangla-AI.git
 cd Rag-Bangla-AI
 ```
 
-2. **Create Virtual Environment**
+### 2. **Create Virtual Environment**
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. **Install Dependencies**
+### 3. **Install Dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Environment Setup**
+### 4. **Environment Setup**
 ```bash
 # Create .env file and add your GROQ API key
 echo "GROQ_API_KEY=your_groq_api_key_here" > .env
 ```
 
-5. **Run the Processing Pipeline**
+### 5. **Run the Processing Pipeline**
 ```bash
 # Extract text from PDF
 python app/extract_pdf_text.py  # it will generate data/extracted_text.txt
@@ -144,48 +144,48 @@ python app/chunk_text.py        # it will generate data/chunks.txt
 python app/embed_chunks.py     # it will generate app/vectore_store.pkl
 ```
 
-6. **Start the Application**
+### 6. **Start the Application**
 ```bash
 python main.py
 ```
 
-7. **Access the Application**
+### 7. **Access the Application**
 - Open your browser and go to: `http://localhost:8000`
 - API endpoint: `http://localhost:8000/api/search`
 
 ## Sample Outputs
 
-### Query 1: অনুপমের ভাষায় সুপুরুষ কাকে বলা হয়েছে?
-### Expected Answer: শম্ভনাথ বাবু
+#### Query 1: অনুপমের ভাষায় সুপুরুষ কাকে বলা হয়েছে?
+#### Expected Answer: শম্ভনাথ বাবু
 ![Query 1 Output](screenshots/supurush.png)
 
-### Query 2: কাকে অনুপমের ভাগ্যদেবতা বলে উল্লেখ করা হয়েছে?
-### Expected Answer: মামা
+#### Query 2: কাকে অনুপমের ভাগ্যদেবতা বলে উল্লেখ করা হয়েছে?
+#### Expected Answer: মামা
 ![Query 2 Output](screenshots/3.png)
 
-### Query 3: হরিশ কোথায় কাজ করে?
-### Expected Answer: কানপুরে
+#### Query 3: হরিশ কোথায় কাজ করে?
+#### Expected Answer: কানপুরে
 ![Query 3 Output](screenshots/horish_kaj.png)
 
-### Query 4: বিয়ে উপলক্ষে কন্যপক্ষকে কোথায় আসতে হলো?
-### Expected Answer: কলকাতা
+#### Query 4: বিয়ে উপলক্ষে কন্যপক্ষকে কোথায় আসতে হলো?
+#### Expected Answer: কলকাতা
 ![Query 3 Output](screenshots/kolikata.png)
 
-### Query 5: "মেয়ে যদি বলো একটি খাসা মেয়ে আছে"- উক্তিটি কাড়?
-### Expected Answer: হরিশ
+#### Query 5: "মেয়ে যদি বলো একটি খাসা মেয়ে আছে"- উক্তিটি কাড়?
+#### Expected Answer: হরিশ
 ![Query 3 Output](screenshots/ukti.png)
 
-### Query 6: অনুপমের আসল অভিবাবক কে?
-### Expected Answer: মামা
+#### Query 6: অনুপমের আসল অভিবাবক কে?
+#### Expected Answer: মামা
 ![Query 3 Output](screenshots/onupom_obhibakol.png)
 
-### Query 7: কন্যাকে আশীর্বাদ করার জন্য কাকে পাঠানো হলো?
-### Expected Answer: বিনুদা
+#### Query 7: কন্যাকে আশীর্বাদ করার জন্য কাকে পাঠানো হলো?
+#### Expected Answer: বিনুদা
 ![Query 3 Output](screenshots/binu.png)
 
 ##  Technical Q&A
 
-### Q1: What method or library did you use to extract the text, and why? Did you face any formatting challenges with the PDF content?
+## Q1: What method or library did you use to extract the text, and why? Did you face any formatting challenges with the PDF content?
 
 **Answer**: I used `pdfplumber` library for text extraction because it provides excellent support for Bengali Unicode characters and maintains text formatting better than other libraries like PyPDF2. For OCR-related formatting issues, I integrated `tesseract-ocr` and `poppler-utils` for better Bengali text recognition.
 
@@ -233,7 +233,7 @@ text = re.sub(r'\n +', '\n', text)
 
 **Key Benefits**: Bengali Unicode preservation with OCR enhancement, page-specific extraction, systematic formatting cleanup through regex patterns and tesseract-ocr integration.
 
-### Q2: What chunking strategy did you choose? Why do you think it works well for semantic retrieval?
+## Q2: What chunking strategy did you choose? Why do you think it works well for semantic retrieval?
 
 **Answer**: I chose paragraph-based chunking after experimenting with multiple strategies. I tested 2-line based chunks, 1-line based chunks, and paragraph-based chunks, and found more accuracy in paragraph-based chunking for semantic retrieval.
 
@@ -288,7 +288,7 @@ print(f"Total {len(chunks)} paragraph-based chunks saved to {output_path}")
 
 **Results**: Paragraph-based chunking achieved higher accuracy in retrieving relevant context for Bengali Q&A, especially for complex queries about character relationships and story details.
 
-### Q3: What embedding model did you use? Why did you choose it? How does it capture the meaning of the text?
+## Q3: What embedding model did you use? Why did you choose it? How does it capture the meaning of the text?
 
 ####  **Model Used**
 **`paraphrase-multilingual-MiniLM-L12-v2`**
@@ -330,7 +330,7 @@ Without Bengali understanding → Wrong retrieval → Wrong answers
 With this model → 85%+ accuracy on Bengali queries
 
 
-### Q4: How are you comparing the query with your stored chunks? Why did you choose this similarity method and storage setup?
+## Q4: How are you comparing the query with your stored chunks? Why did you choose this similarity method and storage setup?
 
 #### **My Comparison Strategy**
 
@@ -370,7 +370,7 @@ confidence = (semantic_score × 0.7) + (keyword_matches × 0.3)
 
 ---
 
-### Q5: How do you ensure meaningful comparison? What happens with vague queries?
+## Q5: How do you ensure meaningful comparison? What happens with vague queries?
 
 #### **Meaningful Comparison Strategies**
 
@@ -408,7 +408,7 @@ if max_confidence < 0.5:
 
 ---
 
-### Q6: Are results relevant? What improvements are needed?
+## Q6: Are results relevant? What improvements are needed?
 
 #### **Current Performance Analysis**
 
