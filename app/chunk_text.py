@@ -5,7 +5,7 @@ with open(input_path, 'r', encoding='utf-8') as f:
     lines = [line.strip() for line in f if len(line.strip()) > 15]
 
 chunks = []
-for i in range(0, len(lines), 2):  # প্রতি ২ লাইনে এক চাংক
+for i in range(0, len(lines), 2):
     chunk = ' '.join(lines[i:i+2])
     if chunk:
         chunks.append(chunk)
