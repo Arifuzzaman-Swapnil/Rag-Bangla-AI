@@ -54,25 +54,24 @@ for i in range(0, len(lines), 2):
 ```
 rag-bangla-hsc/
 ├── app/
-│   ├── api.py
-│   ├── chunk_text.py
-│   ├── clean_text.py
-│   ├── embed_chunks.py
-│   ├── extract_pdf_text.py
-│   ├── rag_model.py
-│   ├── search_qa.py
-│   ├── vector_store.pkl
-│   ├── vector_store_small.pkl
-│   └── vector_store_2line.pkl
+│   ├── __init__.py
+│   ├── chunk_text.py                 # paragraph-based chunking
+│   ├── clean_text.py                 # clean text with ocr
+│   ├── embed_chunks.py               # vector database
+│   ├── extract_pdf_text.py           # extract pdf to text (page 6-27)
+│   ├── rag_model.py                  # rag model
+│   ├── search_qa.py                  # search from chunks for testing purpose 
+│   ├── vector_store.pkl              # finalize vector.pkl
+│   ├── vector_store_small.pkl        # for testing purpose 
+│   └── vector_store_2line.pkl        # for testing purpose 
 ├── data/
-│   ├── hsc26_bangla1.pdf
-│   ├── extracted_text.txt
-│   ├── cleaned_text.txt
-│   ├── chunks.txt
-│   ├── chunks_small.txt
-│   └── chunks_2line.txt
-├── venv/
-├── .env
+│   ├── hsc26_bangla1.pdf             # dataset
+│   ├── extracted_text.txt            # the text extract from pdf
+│   ├── cleaned_text.txt              # ocr text with pre-processing
+│   ├── chunks.txt                    # paragraph based chunking (final used)
+│   ├── chunks_small.txt              # line based chunking (for testing)
+│   └── chunks_2line.txt              # 2 line based chunking (for testing)
+├── .env                              # create .env file and paste your groq api key
 ├── main.py
 └── requirements.txt
 ```
@@ -154,7 +153,7 @@ python main.py
 
 ### Query 7: কন্যাকে আশীর্বাদ করার জন্য কাকে পাঠানো হলো?
 ### Expected Answer: বিনুদা
-![Query 3 Output](screenshots/query3.png)
+![Query 3 Output](screenshots/binu.png)
 
 ## ❓ Technical Q&A
 
