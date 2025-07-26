@@ -43,14 +43,14 @@ The dataset contains the main গদ্য পার্ট from HSC26 Bangla 1st
 - **Stop Words**: Removed common Bengali and English stop words for better query processing
 - **Similarity**: Cosine similarity for semantic matching
 
-## 🚀 Main Application (main.py)
+## Main Application (main.py)
 
 - **Flask REST API** with CORS support
 - **Real-time Web Interface** with modern UI
 - **Multi-metric Evaluation**: Confidence, keyword matching, semantic similarity
 - **Status Monitoring**: System health and performance tracking
 
-## 🛠️ Project Setup
+## Project Setup
 
 ### Project Structure
 ```
@@ -155,33 +155,35 @@ python main.py
 
 ## Sample Outputs
 
-#### Query 1: অনুপমের ভাষায় সুপুরুষ কাকে বলা হয়েছে?
-#### Expected Answer: শম্ভনাথ বাবু
+##### Query 1: অনুপমের ভাষায় সুপুরুষ কাকে বলা হয়েছে?
+##### Expected Answer: শম্ভনাথ বাবু
 ![Query 1 Output](screenshots/supurush.png)
 
-#### Query 2: কাকে অনুপমের ভাগ্যদেবতা বলে উল্লেখ করা হয়েছে?
-#### Expected Answer: মামা
+##### Query 2: কাকে অনুপমের ভাগ্যদেবতা বলে উল্লেখ করা হয়েছে?
+##### Expected Answer: মামা
 ![Query 2 Output](screenshots/3.png)
 
-#### Query 3: হরিশ কোথায় কাজ করে?
-#### Expected Answer: কানপুরে
+##### Query 3: হরিশ কোথায় কাজ করে?
+##### Expected Answer: কানপুরে
 ![Query 3 Output](screenshots/horish_kaj.png)
 
-#### Query 4: বিয়ে উপলক্ষে কন্যপক্ষকে কোথায় আসতে হলো?
-#### Expected Answer: কলকাতা
+##### Query 4: বিয়ে উপলক্ষে কন্যপক্ষকে কোথায় আসতে হলো?
+##### Expected Answer: কলকাতা
 ![Query 3 Output](screenshots/kolikata.png)
 
-#### Query 5: "মেয়ে যদি বলো একটি খাসা মেয়ে আছে"- উক্তিটি কাড়?
-#### Expected Answer: হরিশ
+##### Query 5: "মেয়ে যদি বলো একটি খাসা মেয়ে আছে"- উক্তিটি কাড়?
+##### Expected Answer: হরিশ
 ![Query 3 Output](screenshots/ukti.png)
 
-#### Query 6: অনুপমের আসল অভিবাবক কে?
-#### Expected Answer: মামা
+##### Query 6: অনুপমের আসল অভিবাবক কে?
+##### Expected Answer: মামা
 ![Query 3 Output](screenshots/onupom_obhibakol.png)
 
-#### Query 7: কন্যাকে আশীর্বাদ করার জন্য কাকে পাঠানো হলো?
-#### Expected Answer: বিনুদা
+##### Query 7: কন্যাকে আশীর্বাদ করার জন্য কাকে পাঠানো হলো?
+##### Expected Answer: বিনুদা
 ![Query 3 Output](screenshots/binu.png)
+
+---
 
 ##  Technical Q&A
 
@@ -232,6 +234,8 @@ text = re.sub(r'\n +', '\n', text)
 ```
 
 **Key Benefits**: Bengali Unicode preservation with OCR enhancement, page-specific extraction, systematic formatting cleanup through regex patterns and tesseract-ocr integration.
+
+---
 
 ## Q2: What chunking strategy did you choose? Why do you think it works well for semantic retrieval?
 
@@ -288,6 +292,8 @@ print(f"Total {len(chunks)} paragraph-based chunks saved to {output_path}")
 
 **Results**: Paragraph-based chunking achieved higher accuracy in retrieving relevant context for Bengali Q&A, especially for complex queries about character relationships and story details.
 
+---
+
 ## Q3: What embedding model did you use? Why did you choose it? How does it capture the meaning of the text?
 
 ####  **Model Used**
@@ -329,6 +335,7 @@ Similarity: 0.751 ✅
 Without Bengali understanding → Wrong retrieval → Wrong answers
 With this model → 85%+ accuracy on Bengali queries
 
+---
 
 ## Q4: How are you comparing the query with your stored chunks? Why did you choose this similarity method and storage setup?
 
@@ -462,6 +469,8 @@ final_score = (semantic_score × 0.7) + (tfidf_score × 0.3)
 3.  Synonym expansion
 4.  Hybrid search
 
+---
+
 ## ✅ Task Completion Status
 
 ### Core Tasks
@@ -515,7 +524,7 @@ final_score = (semantic_score × 0.7) + (tfidf_score × 0.3)
 }
 ```
 
-## 📦 Technologies Used
+## Technologies Used
 
 - **Backend**: Flask, Python 3.8+
 - **ML/AI**: sentence-transformers, FAISS, GROQ
@@ -524,10 +533,17 @@ final_score = (semantic_score × 0.7) + (tfidf_score × 0.3)
 - **Database**: Pickle-based vector storage
 - **API**: RESTful API with CORS support
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to submit issues, fork the repository, and create pull requests for any improvements.
 
-## 📄 License
+## License
 
 This project is open source and available under the MIT License.
+
+## Authos
+Md Arifuzzaman Swapnil
+Email: [md.arifuzzamanswapnil@gmail.com]
+Contact: 01722569839
+
+## Thank you for giving your valuable time.
