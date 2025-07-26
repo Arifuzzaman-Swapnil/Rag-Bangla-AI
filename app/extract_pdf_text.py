@@ -3,7 +3,6 @@ import pdfplumber
 pdf_path = 'data/hsc26_bangla1.pdf'
 output_path = 'data/extracted_text.txt'
 
-# pdfplumber page numbers are 0-indexed, so page 6 = index 5, page 27 = index 26
 start_page = 5
 end_page = 26
 
