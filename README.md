@@ -32,8 +32,8 @@ The dataset contains the main গদ্য পার্ট from HSC26 Bangla 1st
 
 ## Chunks
 
-**Strategy**: Paragraph-based chunking 
-**Rationale**: This approach maintains semantic coherence while keeping chunks manageable for embedding and retrieval.
+-  **Strategy**: Paragraph-based chunking 
+- **Rationale**: This approach maintains semantic coherence while keeping chunks manageable for embedding and retrieval.
 
 ## RAG Implementation
 
@@ -82,7 +82,7 @@ rag-bangla-hsc/
 
 Full Setup Guide (TesserOCR + Bengali OCR)
 
-1. Install Tesseract Engine (System Level)
+Install Tesseract Engine (System Level)
 - **Ubuntu/Debian:**
 ```bash
 sudo apt update
@@ -153,7 +153,7 @@ python main.py
 - Open your browser and go to: `http://localhost:8000`
 - API endpoint: `http://localhost:8000/api/search`
 
-## 📱 Sample Outputs
+## Sample Outputs
 
 ### Query 1: অনুপমের ভাষায় সুপুরুষ কাকে বলা হয়েছে?
 ### Expected Answer: শম্ভনাথ বাবু
@@ -183,10 +183,7 @@ python main.py
 ### Expected Answer: বিনুদা
 ![Query 3 Output](screenshots/binu.png)
 
-## ❓ Technical Q&A
-
-### Q1: What method or library did you use to extract the text, and why? Did you face any formatting challenges with the PDF content?
-## ❓ Technical Q&A
+##  Technical Q&A
 
 ### Q1: What method or library did you use to extract the text, and why? Did you face any formatting challenges with the PDF content?
 
@@ -236,7 +233,7 @@ text = re.sub(r'\n +', '\n', text)
 
 **Key Benefits**: Bengali Unicode preservation with OCR enhancement, page-specific extraction, systematic formatting cleanup through regex patterns and tesseract-ocr integration.
 
-### ### Q2: What chunking strategy did you choose? Why do you think it works well for semantic retrieval?
+### Q2: What chunking strategy did you choose? Why do you think it works well for semantic retrieval?
 
 **Answer**: I chose paragraph-based chunking after experimenting with multiple strategies. I tested 2-line based chunks, 1-line based chunks, and paragraph-based chunks, and found more accuracy in paragraph-based chunking for semantic retrieval.
 
