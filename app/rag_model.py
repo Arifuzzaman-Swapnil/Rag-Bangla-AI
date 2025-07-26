@@ -449,6 +449,7 @@ class EnhancedRAGSystemWithGroq:
         except Exception as e:
             print(f"❌ Error with Groq API: {e}")
             return self.extract_answer_fallback(query, chunk_text)
+   
     
     def extract_answer_fallback(self, query, chunk_text):
         """Fallback method for answer extraction without API"""
@@ -573,7 +574,6 @@ def test_rag_system_with_groq():
     test_queries = [
         "অনুপমের ভাষায় সুপুরুষ কাকে বলা হয়েছে?",
         "কাকে অনুপমের ভাগ্যদেবতা বলে উল্লেখ করা হয়েছে?",
-        "বিয়ের সময় কল্যাণীর প্রকৃত বয়স কত ছিল?",
         "বিয়ে উপলক্ষে কন্যাপক্ষকে কোথায় আসিতে হইল?"
     ]
     
