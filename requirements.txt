@@ -1,0 +1,9 @@
+flask
+sentence-transformers
+faiss-cpu
+pdfplumber
+nltk
+numpy
+scikit-learn
+groq
+python-dotenv
